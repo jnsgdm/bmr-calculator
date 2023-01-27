@@ -1,6 +1,6 @@
 import Presentation from './components/Presentation/Presentation';
-import QuestionFlow from './components/Question/Question';
 import Result from './components/Result/Result';
+import Question from './components/Question/Question';
 
 import { useState } from 'react';
 
@@ -19,16 +19,27 @@ const stage: Stage[] = [
 
 function App() {
   const [appStage, setAppStage] = useState(stage[0].id);
+  const [valueBasal, setValueBasal] = useState({})
 
   const handleFlow = (value: number): void => {
     setAppStage(stage[value].id);
   }
 
+  const handleCallbackData = (a:string, b:string, c:string, d:string): void => {
+    const objBasal = {
+      gender: a,
+      age: b,
+      height: c,
+      weight: d
+    }
+    setValueBasal(objBasal);
+  }
+
   return (
     <div className="App">
       {appStage === 1 && <Presentation handleFlow={handleFlow}/>} 
-      {appStage === 2 && <QuestionFlow handleFlow={handleFlow}/>}
-      {appStage === 3 && <Result/>}
+      {appStage === 2 && <Question handleFlow={handleFlow} handleCallbackData={handleCallbackData}/>}
+      {appStage === 3 && <Result data={valueBasal}/>}
     </div>
   );
 }

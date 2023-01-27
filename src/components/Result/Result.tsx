@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useFormulaBasal } from '../../hooks/useFormulaBasal'
 
-type Props = {}
+type Props = {
+  data: any
+}
 
-function Result({}: Props) {
-  return (
-    <div>Result</div>
+function Result(props: Props) {
+  
+  const handleCalculateBasal = (): void => {
+    
+  }
+
+  const valor = useFormulaBasal(props.data);
+
+  // const [sum, setSum] = useState();
+
+  // let x = props.data.age + props.data.height + props.data.weight;
+  // setSum(x);
+
+  return (    
+    <div>
+      Teste: {valor}
+    </div>
   )
 }
 
