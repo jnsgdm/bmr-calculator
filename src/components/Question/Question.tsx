@@ -6,6 +6,7 @@ import ShowData from './ShowData/ShowData';
 type Props = {
   handleFlow: any;
   handleCallbackData: any;
+  userName: string;
 }
 
 interface Question {
@@ -14,10 +15,10 @@ interface Question {
 }
 
 const questions: Question[] = [
-  {id: 1, desc: 'seu genero bilogico'},
-  {id: 2, desc: 'sua idade'},
-  {id: 3, desc: 'seu peso'},
-  {id: 4, desc: 'sua altura'}
+  {id: 1, desc: 'o seu genero bilogico'},
+  {id: 2, desc: 'a sua idade atual'},
+  {id: 3, desc: 'o seu peso atual'},
+  {id: 4, desc: 'a sua altura'}
 ];
 
 interface Basal {
@@ -48,23 +49,44 @@ const QuestionFlow = (props: Props) => {
     switch (i) {
         case 0:
           if(inputValue !== ""){
+            setGender(inputValue);
+          }else{
+            //componente de msg
+            alert('pfv preencha o campo antes de avançar')
+            return;
           }
-          setGender(inputValue);
           setInputValue("");
           break;
         case 1: 
+          if(inputValue !== ""){
             setAge(inputValue);
-            setInputValue("");
-            break;
+          }else{
+            //componente de msg
+            alert('pfv preencha o campo antes de avançar')
+            return;
+          }            
+          setInputValue("");
+          break;
         case 2: 
+          if(inputValue !== ""){
             setHeight(inputValue);
-            setInputValue("");
-            break;
+          }else{
+            //componente de msg
+            alert('pfv preencha o campo antes de avançar')
+            return;
+          }
+          setInputValue("");
+          break;
         case 3:
+          if(inputValue !== ""){
             setWeight(inputValue);
-            setInputValue("");
-            setCalc(true);
-            break;
+          }else{
+            //componente de msg
+            alert('pfv preencha o campo antes de avançar')
+            return;
+          }
+          setCalc(true);
+          break;
     }
     setQuestionIndex(questionIndex+1);
   }
@@ -76,14 +98,20 @@ const QuestionFlow = (props: Props) => {
     weight: weight
   }
 
-  const sedIndexStage = (): void => {
+  const sendIndexStage = (): void => {
     props.handleCallbackData(gender,age,height,weight)
     props.handleFlow(2);
   }
 
+  const handleStartWithEnter = (e: any) => {
+    if(e.keyCode === 13){
+      handleGetNextQuestion(questionIndex);
+    }
+  }
+
   return (
     <div className='questionflow'>
-      {questionIndex <= 3 && <h4>Informe {requestData}</h4>}
+      {questionIndex <= 3 && <h4>{props.userName}, me informe {requestData}</h4>}
       {gender === '' && 
         <select value={inputValue} onChange={(e) => setInputValue(e.target.value)}>
           <option value="">-- Selecione --</option>
@@ -91,9 +119,9 @@ const QuestionFlow = (props: Props) => {
           <option value="m">Masculino</option>
         </select>
       }
-      {(questionIndex > 0 && questionIndex <= 3) && <input type="number" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/> }
+      {(questionIndex > 0 && questionIndex <= 3) && <input type="number" value={inputValue} onChange={(e) => setInputValue(e.target.value)} onKeyDown={handleStartWithEnter}/> }
       {questionIndex <= 3 && <button onClick={() => handleGetNextQuestion(questionIndex)}>Avançar</button>}
-      {calc && <ShowData sedIndexStage={sedIndexStage} basalObj={obj}/>}
+      {calc && <ShowData sedIndexStage={sendIndexStage} basalObj={obj}/>}
     </div>
   ) }
 

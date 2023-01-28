@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import '../Presentation/Presentation.css'
 
 type Props = {
   handleFlow: any;
+  handleCallBackName: any;
 }
 
 function Presentation(props: Props) {
@@ -12,8 +14,17 @@ function Presentation(props: Props) {
   (sexo, idade, peso e altura). 
   `
 
-  const sedIndexStage = (): void => {
+  const [name, setName] = useState("");
+
+  const sendIndexStage = (): void => {
+    props.handleCallBackName(name)
     props.handleFlow(1);
+  }
+
+  const handleStartWithEnter = (e: any) => {
+    if(e.keyCode === 13){
+      sendIndexStage()
+    }
   }
 
   return ( 
@@ -21,7 +32,9 @@ function Presentation(props: Props) {
       <h2> 
         {explain}
       </h2>
-      <button onClick={sedIndexStage}>Iniciar</button>
+      <label htmlFor="">Me fale seu nome para começarmos:</label>
+      <input type="text" value={name} onChange={(e) => setName(e.target.value)} onKeyDown={handleStartWithEnter}/>
+      <button onClick={sendIndexStage} >Iniciar</button>
     </div>
   ) }
 

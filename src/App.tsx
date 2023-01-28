@@ -20,6 +20,7 @@ const stage: Stage[] = [
 function App() {
   const [appStage, setAppStage] = useState(stage[0].id);
   const [valueBasal, setValueBasal] = useState({})
+  const [userName, setUserName] = useState("");
 
   const handleFlow = (value: number): void => {
     setAppStage(stage[value].id);
@@ -35,11 +36,15 @@ function App() {
     setValueBasal(objBasal);
   }
 
+  const handleCallBackName = (name: string): void => {
+    setUserName(name);
+  }
+
   return (
     <div className="App">
-      {appStage === 1 && <Presentation handleFlow={handleFlow}/>} 
-      {appStage === 2 && <Question handleFlow={handleFlow} handleCallbackData={handleCallbackData}/>}
-      {appStage === 3 && <Result data={valueBasal}/>}
+      {appStage === 1 && <Presentation handleFlow={handleFlow} handleCallBackName={handleCallBackName}/>} 
+      {appStage === 2 && <Question handleFlow={handleFlow} handleCallbackData={handleCallbackData} userName={userName}/>}
+      {appStage === 3 && <Result data={valueBasal} />}
     </div>
   );
 }
