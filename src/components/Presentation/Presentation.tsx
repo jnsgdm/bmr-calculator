@@ -8,11 +8,11 @@ type Props = {
 
 function Presentation(props: Props) {
   const explain: string = `
-  A taxa metabólica basal (TMB) mostra a média de calorias necessarias que uma pessoa
-  gasta parada, em jejum ou em repouso, para sobreviver.
-  Para conseguir calcular essa taxa através da formula será necessário 4 variaveis
-  (sexo, idade, peso e altura). 
-  `
+    A taxa metabólica basal (TMB) mostra a média de calorias necessarias que uma pessoa
+    gasta parada, em jejum ou em repouso, para sobreviver.
+    Para obter essa taxa é utilizada uma formula que necessita de 4 variaveis
+    (sexo, idade, peso e altura).
+  ` 
 
   const [name, setName] = useState("");
 

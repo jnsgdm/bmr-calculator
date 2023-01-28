@@ -17,8 +17,8 @@ interface Question {
 const questions: Question[] = [
   {id: 1, desc: 'o seu genero bilogico'},
   {id: 2, desc: 'a sua idade atual'},
-  {id: 3, desc: 'o seu peso atual'},
-  {id: 4, desc: 'a sua altura'}
+  {id: 3, desc: 'o seu peso atual (em kg)'},
+  {id: 4, desc: 'a sua altura (em cm)'}
 ];
 
 interface Basal {
