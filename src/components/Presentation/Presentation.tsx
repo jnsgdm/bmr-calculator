@@ -17,8 +17,12 @@ function Presentation(props: Props) {
   const [name, setName] = useState("");
 
   const sendIndexStage = (): void => {
-    props.handleCallBackName(name)
-    props.handleFlow(1);
+    if(name === ""){
+      alert('pfv informe algum nome para ser chamad')
+    }else{
+      props.handleCallBackName(name)
+      props.handleFlow(1);
+    }
   }
 
   const handleStartWithEnter = (e: any) => {

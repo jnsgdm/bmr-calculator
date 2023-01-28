@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+import { normalizeInputs } from '../../utils/masks';
+
 import './Question.css'
 import ShowData from './ShowData/ShowData';
 
@@ -109,6 +111,13 @@ const QuestionFlow = (props: Props) => {
     }
   }
 
+  const handleMaskInput = (value: string) => {
+    let normalized: any = normalizeInputs(value,'a');
+    if(normalized !== ""){
+      setInputValue(normalized);
+    }
+  }
+
   return (
     <div className='questionflow'>
       {questionIndex <= 3 && <h4>{props.userName}, me informe {requestData}</h4>}
@@ -119,7 +128,7 @@ const QuestionFlow = (props: Props) => {
           <option value="m">Masculino</option>
         </select>
       }
-      {(questionIndex > 0 && questionIndex <= 3) && <input type="number" value={inputValue} onChange={(e) => setInputValue(e.target.value)} onKeyDown={handleStartWithEnter}/> }
+      {(questionIndex > 0 && questionIndex <= 3) && <input type="number" value={inputValue} onChange={(e) => handleMaskInput(e.target.value)} onKeyDown={handleStartWithEnter}/> }
       {questionIndex <= 3 && <button onClick={() => handleGetNextQuestion(questionIndex)}>Avançar</button>}
       {calc && <ShowData sedIndexStage={sendIndexStage} basalObj={obj}/>}
     </div>
