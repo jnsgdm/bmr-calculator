@@ -1,4 +1,4 @@
-export function useFormulaBasal(data: any): number {
+export function useFormulaBasal(data: any): string {
     let intAge = parseInt(data.age);
     let intHeight = parseInt(data.height);
     let intWeight = parseInt(data.weight);
@@ -9,5 +9,8 @@ export function useFormulaBasal(data: any): number {
         result = 66 + (13.8 * intWeight) + (5 * intHeight) - (6.8 * intAge);
     }
 
-    return result
+    const formatedResult = Math.round(result);
+    const stringResult = `${formatedResult} kcal`
+
+    return stringResult;
 }
