@@ -1,0 +1,54 @@
+.backdrop {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    background-color: azure;
+    color: #000;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    max-width: 75vw;
+    max-height: 90vh;
+    position: relative;
+}
+
+.btn-modal-close {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #000;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+}
+
+.btn-modal-close::before, 
+.btn-modal-close::after {
+    content: "";
+    position: absolute;
+    width: 1.25rem;
+    height: 0.125rem;
+    background-color: currentColor;
+    border-radius: 0.125rem;
+    left: 0;
+    top: calc(1.25rem/2);
+}
+
+.btn-modal-close::before {
+    transform: rotate(45deg);
+}
+
+.btn-modal-close::after {
+    transform: rotate(-45deg);
+}

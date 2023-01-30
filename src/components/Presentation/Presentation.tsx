@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Modal from '../Modal/Modal';
 import '../Presentation/Presentation.css'
 
 type Props = {
@@ -7,38 +8,46 @@ type Props = {
 }
 
 function Presentation(props: Props) {
-  const explain: string = `
-    A taxa metabólica basal (TMB) mostra a média de calorias necessarias que uma pessoa
-    gasta parada, em jejum ou em repouso, para sobreviver.
-    Para obter essa taxa é utilizada uma formula que necessita de 4 variaveis
-    (sexo, idade, peso e altura).
-  ` 
+  const [start,setStart] = useState(false);
 
   const [name, setName] = useState("");
 
-  const sendIndexStage = (): void => {
-    if(name === ""){
-      alert('pfv informe algum nome para ser chamad')
-    }else{
-      props.handleCallBackName(name)
-      props.handleFlow(1);
-    }
-  }
-
-  const handleStartWithEnter = (e: any) => {
-    if(e.keyCode === 13){
-      sendIndexStage()
-    }
-  }
+    const sendIndexStage = (): void => {
+        if(name === ""){
+          alert('pfv informe algum nome para ser chamad')
+        }else{
+          props.handleCallBackName(name)
+          props.handleFlow(1);
+        }
+      }
+    
+      const handleStartWithEnter = (e: any) => {
+        if(e.keyCode === 13){
+          sendIndexStage()
+        }
+      }
 
   return ( 
     <div className="presentation"> 
-      <h2> 
-        {explain}
-      </h2>
-      <label htmlFor="">Me fale seu nome para começarmos:</label>
-      <input type="text" value={name} onChange={(e) => setName(e.target.value)} onKeyDown={handleStartWithEnter}/>
-      <button onClick={sendIndexStage} >Iniciar</button>
+      {/* apresentação */}
+      <h1>BMR Calculator</h1>
+     
+      <h3>O que é Taxa de Metabolismo Basal? </h3>
+      <h5>A taxa metabólica basal (TMB) mostra a média de calorias necessarias que uma pessoa
+      asta parada, em jejum ou em repouso, para sobreviver.</h5>
+
+      <h3>O queé preciso para calcular essa taxa?</h3>
+      <h5>Para obter essa taxa é utilizada uma formula que necessita de 4 variaveis
+      (sexo, idade, peso e altura).</h5>
+      <Modal start={start} setStart={setStart}>
+        <div>
+            <label htmlFor="">Me fale seu nome para começarmos:</label>
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} onKeyDown={handleStartWithEnter}/>
+            <button onClick={sendIndexStage}>Continuar</button>
+          </div>
+      </Modal>
+      {/* Abrir modal para pegar o nome e passar para os outros components*/}
+      <button onClick={() => {setStart(true)}} >Iniciar</button>
     </div>
   ) }
 

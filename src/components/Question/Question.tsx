@@ -20,7 +20,7 @@ const questions: Question[] = [
   {id: 1, desc: 'o seu genero bilogico'},
   {id: 2, desc: 'a sua idade atual'},
   {id: 3, desc: 'o seu peso atual (em kg)'},
-  {id: 4, desc: 'a sua altura (em cm)'}
+  {id: 4, desc: 'a sua altura'}
 ];
 
 interface Basal {
@@ -113,7 +113,13 @@ const QuestionFlow = (props: Props) => {
 
   useEffect(() => {
     if(questionIndex === 3){
-      let normalized: any = normalizeInputs(inputValue,'a');
+      let normalized: any = normalizeInputs(inputValue,'m');
+      if(normalized !== ""){
+        setInputValue(normalized);
+      }
+    }
+    if(questionIndex === 2){
+      let normalized: any = normalizeInputs(inputValue,'kg');
       if(normalized !== ""){
         setInputValue(normalized);
       }
