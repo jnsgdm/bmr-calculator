@@ -8,3 +8,11 @@
 .presentation h2 {
     color: #000;
 }
+
+.content-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}

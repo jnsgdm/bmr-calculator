@@ -124,10 +124,16 @@ const QuestionFlow = (props: Props) => {
         setInputValue(normalized);
       }
     }
+    if(questionIndex === 1){
+      let normalized: any = normalizeInputs(inputValue,'a');
+      if(normalized !== ""){
+        setInputValue(normalized);
+      }
+    }
   },[inputValue]); 
 
   return (
-    <div className='questionflow'>
+    <div className='question-card'>
       {questionIndex <= 3 && <h4>{props.userName}, me informe {requestData}</h4>}
       {gender === '' && 
         <select value={inputValue} onChange={(e) => setInputValue(e.target.value)}>
@@ -137,7 +143,7 @@ const QuestionFlow = (props: Props) => {
         </select>
       }
       {(questionIndex > 0 && questionIndex <= 3) && <input type="number" value={inputValue} onChange={(e) => setInputValue(e.target.value)} onKeyDown={handleStartWithEnter}/> }
-      {questionIndex <= 3 && <button onClick={() => handleGetNextQuestion(questionIndex)}>Avançar</button>}
+      {questionIndex <= 3 && <button onClick={() => handleGetNextQuestion(questionIndex)} className='btn'>Avançar</button>}
       {calc && <ShowData sedIndexStage={sendIndexStage} basalObj={obj}/>}
     </div>
   ) }

@@ -29,9 +29,9 @@ function Presentation(props: Props) {
 
   return ( 
     <div className="presentation"> 
-      {/* apresentação */}
       <h1>BMR Calculator</h1>
-     
+      <h3>Esse projeto tem como objetivo calcular a taxa de metabolismo basal do usuário</h3>
+
       <h3>O que é Taxa de Metabolismo Basal? </h3>
       <h5>A taxa metabólica basal (TMB) mostra a média de calorias necessarias que uma pessoa
       asta parada, em jejum ou em repouso, para sobreviver.</h5>
@@ -40,14 +40,13 @@ function Presentation(props: Props) {
       <h5>Para obter essa taxa é utilizada uma formula que necessita de 4 variaveis
       (sexo, idade, peso e altura).</h5>
       <Modal start={start} setStart={setStart}>
-        <div>
+        <div className='content-modal'>
             <label htmlFor="">Me fale seu nome para começarmos:</label>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} onKeyDown={handleStartWithEnter}/>
-            <button onClick={sendIndexStage}>Continuar</button>
+            <button onClick={sendIndexStage} className='btn'>Continuar</button>
           </div>
       </Modal>
-      {/* Abrir modal para pegar o nome e passar para os outros components*/}
-      <button onClick={() => {setStart(true)}} >Iniciar</button>
+      <button onClick={() => {setStart(true)}} className='btn'>Iniciar</button>
     </div>
   ) }
 

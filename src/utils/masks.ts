@@ -13,12 +13,18 @@ export const normalizeInputs = (value: string, type: string) => {
     } 
 
     if(type === 'kg'){
-        if(value.length <= 4){
-            return value.replace(/(\d{2})(\d{2})/g,"$1.$2");
-        }else if(value.length === 6){
+        if(value.length <= 5){
+            return value.replace(/(\d{3})(\d{2})/g,"$1.$2");
+        }else if(value.length > 5){
             return value.replace(/(.\d{2})(\d+?)/,"$1");
         }else {
             return value
+        }
+    }
+
+    if(type === 'a'){
+        if(value.length <= 4){
+            return value.replace(/(\d{3})(\d+?)/g,"$1")
         }
     }
 }
