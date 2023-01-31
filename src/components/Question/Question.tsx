@@ -17,10 +17,10 @@ interface Question {
 }
 
 const questions: Question[] = [
-  {id: 1, desc: 'o seu genero bilogico'},
-  {id: 2, desc: 'a sua idade atual'},
-  {id: 3, desc: 'o seu peso atual (em kg)'},
-  {id: 4, desc: 'a sua altura'}
+  {id: 1, desc: 'o seu genero bilogico: '},
+  {id: 2, desc: 'a sua idade atual: '},
+  {id: 3, desc: 'o seu peso atual (em kg): '},
+  {id: 4, desc: 'a sua altura (em metros): '}
 ];
 
 interface Basal {
@@ -134,7 +134,7 @@ const QuestionFlow = (props: Props) => {
 
   return (
     <div className='question-card'>
-      {questionIndex <= 3 && <h4>{props.userName}, me informe {requestData}</h4>}
+      {questionIndex <= 3 && <p>{props.userName}, me informe {requestData}</p>}
       {gender === '' && 
         <select value={inputValue} onChange={(e) => setInputValue(e.target.value)}>
           <option value="">-- Selecione --</option>

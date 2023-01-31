@@ -1,4 +1,4 @@
-import React from 'react'
+import './ShowData.css'
 
 type Props = {
   sedIndexStage: any
@@ -7,9 +7,9 @@ type Props = {
 
 const ShowData = (props: Props) => {
   return (
-    <div>
+    <div className='showdata'>
         <ul>
-            <li>Genero biologico: {props.basalObj.gender} </li>
+            <li>Genero biologico: {props.basalObj.gender === 'f' ? 'Feminino' : 'Masculino'} </li>
             <li>Idade: {props.basalObj.age}</li>
             <li>Altura: {props.basalObj.height}</li>
             <li>Peso: {props.basalObj.weight}</li>

@@ -58,3 +58,43 @@ select {
   outline: none;
   margin: 1em;
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.presentation {
+  margin: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.presentation h2 {
+  color: #000;
+}
+
+.show-explain {
+  display: flex;
+  justify-content: center;
+  padding: 1.6em;
+  max-width: 30vw;
+}
+
+.show-explain span {
+  position: relative;
+  margin-right: 0.5em;
+}
+
+.explain p {
+  font-size: 0.84em;
+}
+
+.h3-presentation{
+  font-weight: lighter;
+}

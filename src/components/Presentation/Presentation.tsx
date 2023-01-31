@@ -30,14 +30,14 @@ function Presentation(props: Props) {
   return ( 
     <div className="presentation"> 
       <h1>TBM Calculator</h1>
-      <h3>Esse projeto tem como objetivo calcular a Taxa de Metabolismo Basal do usuário</h3>
+      <h3 className='h3-presentation'>- Esse projeto tem como objetivo calcular a Taxa de Metabolismo Basal do usuário</h3>
       
       <div className='show-explain'>
         <span className="material-symbols-outlined">
           help
         </span>
         <div className='explain'>
-          <h3>O que é essa taxa? </h3>
+          <h3>Para que serve? </h3>
           <p>A taxa metabólica basal (TMB) mostra a média de calorias necessarias que uma pessoa
           parada, em jejum ou em repouso, gasta para sobreviver.</p>
         </div>

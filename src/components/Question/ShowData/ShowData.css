@@ -1,7 +1,7 @@
-.content-modal {
+.showdata ul {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 2em;
+    justify-content: center;
 }

@@ -41,12 +41,16 @@ function App() {
     setUserName(name);
   }
 
+  const handleReStart = (): void => {
+    setAppStage(stage[0].id);
+  }
+
   return (
     <div className="App">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       {appStage === 1 && <Presentation handleFlow={handleFlow} handleCallBackName={handleCallBackName}/>} 
       {appStage === 2 && <Question handleFlow={handleFlow} handleCallbackData={handleCallbackData} userName={userName}/>}
-      {appStage === 3 && <Result data={valueBasal} />}
+      {appStage === 3 && <Result data={valueBasal} userName={userName} handleReStart={handleReStart}/>}
       <Footer/>
     </div>
   );
