@@ -1,6 +1,7 @@
 import Presentation from './components/Presentation/Presentation';
 import Result from './components/Result/Result';
 import Question from './components/Question/Question';
+import Footer from './components/Footer/Footer';
 
 import { useState } from 'react';
 
@@ -42,9 +43,11 @@ function App() {
 
   return (
     <div className="App">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       {appStage === 1 && <Presentation handleFlow={handleFlow} handleCallBackName={handleCallBackName}/>} 
       {appStage === 2 && <Question handleFlow={handleFlow} handleCallbackData={handleCallbackData} userName={userName}/>}
       {appStage === 3 && <Result data={valueBasal} />}
+      <Footer/>
     </div>
   );
 }

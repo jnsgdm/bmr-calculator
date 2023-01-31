@@ -71,7 +71,7 @@ const QuestionFlow = (props: Props) => {
           break;
         case 2: 
           if(inputValue !== ""){
-            setHeight(inputValue);
+            setWeight(inputValue);
           }else{
             //componente de msg
             alert('pfv preencha o campo antes de avançar')
@@ -81,7 +81,7 @@ const QuestionFlow = (props: Props) => {
           break;
         case 3:
           if(inputValue !== ""){
-            setWeight(inputValue);
+            setHeight(inputValue);
           }else{
             //componente de msg
             alert('pfv preencha o campo antes de avançar')

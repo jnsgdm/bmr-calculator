@@ -1,0 +1,12 @@
+.footer{
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+}
+
+.footer-msg {
+    margin-top: 1em;
+    color: #000;
+    font-size: 0.8em;
+}

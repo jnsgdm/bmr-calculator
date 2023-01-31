@@ -14,7 +14,7 @@ const ShowData = (props: Props) => {
             <li>Altura: {props.basalObj.height}</li>
             <li>Peso: {props.basalObj.weight}</li>
         </ul>
-        <button onClick={props.sedIndexStage}>Calcular</button>
+        <button onClick={props.sedIndexStage} className='btn'>Calcular</button>
     </div>
   )
 }

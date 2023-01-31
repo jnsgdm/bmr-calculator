@@ -1,8 +1,11 @@
 export function useFormulaBasal(data: any): string {
     let intAge = parseInt(data.age);
-    let intHeight = parseInt(data.height);
-    let intWeight = parseInt(data.weight);
+    let intHeight = parseFloat(data.height)*100;
+    let intWeight = parseFloat(data.weight);
     let result = 0;
+    
+    console.log(intHeight);
+
     if(data.gender === 'f'){
         result = 655 + (9.6 * intWeight) + (1.8 * intHeight) - (4.7 * intAge)
     }else if(data.gender === 'm'){
