@@ -1,6 +1,11 @@
 import { useState } from 'react';
+
 import Modal from '../Modal/Modal';
+
 import '../Presentation/Presentation.css'
+
+import { AiOutlineCalculator,AiOutlineQuestionCircle } from "react-icons/ai";
+import { CiCalculator2 } from "react-icons/ci";
 
 type Props = {
   handleFlow: any;
@@ -30,12 +35,14 @@ function Presentation(props: Props) {
   return ( 
     <div className="presentation"> 
       <h1>TBM Calculator</h1>
-      <h3 className='h3-presentation'>- Esse projeto tem como objetivo calcular a Taxa de Metabolismo Basal do usuário</h3>
+      <h3 className='h3-presentation'>
+        Esse projeto tem como objetivo calcular a Taxa de Metabolismo Basal do usuário
+      </h3>
       
       <div className='show-explain'>
-        <span className="material-symbols-outlined">
-          help
-        </span>
+        <div className='icon'>
+          <AiOutlineQuestionCircle/>
+        </div>
         <div className='explain'>
           <h3>Para que serve? </h3>
           <p>A taxa metabólica basal (TMB) mostra a média de calorias necessarias que uma pessoa
@@ -44,9 +51,9 @@ function Presentation(props: Props) {
       </div>
 
       <div className='show-explain'>
-        <span className="material-symbols-outlined">
-          calculate
-        </span>
+        <div className='icon'>
+          <AiOutlineCalculator />
+        </div>
         <div className='explain'>
           <h3>Como essa taxa é calculada?</h3>
           <p>Para obter essa taxa é utilizada uma formula que necessita de 4 variaveis

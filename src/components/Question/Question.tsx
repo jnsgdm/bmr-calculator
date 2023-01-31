@@ -2,8 +2,18 @@ import { useEffect, useState } from 'react'
 
 import { normalizeInputs } from '../../utils/masks';
 
-import './Question.css'
 import ShowData from './ShowData/ShowData';
+import Steps from './Steps/Steps';
+
+import {Question} from './interfaces/Question'
+
+import { GiBodyHeight } from "react-icons/gi";
+import { BsFillCalculatorFill,BsCalendarEvent } from "react-icons/bs";
+import { FaWeightHanging } from "react-icons/fa";
+import GenderIcon from './Steps/GenderIcon';
+
+import './Question.css'
+
 
 type Props = {
   handleFlow: any;
@@ -11,16 +21,12 @@ type Props = {
   userName: string;
 }
 
-interface Question {
-  id: number
-  desc: string
-}
-
 const questions: Question[] = [
-  {id: 1, desc: 'o seu genero bilogico: '},
-  {id: 2, desc: 'a sua idade atual: '},
-  {id: 3, desc: 'o seu peso atual (em kg): '},
-  {id: 4, desc: 'a sua altura (em metros): '}
+  {id: 0, desc: 'o seu genero bilogico: ', step: <GenderIcon/>},
+  {id: 1, desc: 'a sua idade atual: ', step: <BsCalendarEvent/>},
+  {id: 2, desc: 'o seu peso atual (em kg): ', step: <FaWeightHanging/>},
+  {id: 3, desc: 'a sua altura (em metros): ', step: <GiBodyHeight/>},
+  {id: 4, desc: 'Calcular ', step: <BsFillCalculatorFill/>}
 ];
 
 interface Basal {
@@ -134,6 +140,7 @@ const QuestionFlow = (props: Props) => {
 
   return (
     <div className='question-card'>
+      <Steps questions={questions} questionIndex={questionIndex}/>
       {questionIndex <= 3 && <p>{props.userName}, me informe {requestData}</p>}
       {gender === '' && 
         <select value={inputValue} onChange={(e) => setInputValue(e.target.value)}>

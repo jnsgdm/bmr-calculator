@@ -1,5 +1,7 @@
 import { useFormulaBasal } from '../../hooks/useFormulaBasal'
 
+import { AiOutlineUp, AiOutlineDown } from "react-icons/ai";
+
 import './Result.css'
 
 type Props = {
@@ -18,20 +20,20 @@ function Result(props: Props) {
         <h3 className='h3-presentation'>{props.userName}, você gasta <b>{valor}</b> para sobreviver!</h3>
       </div>
       <div className='show-explain'>
-        <span className="material-symbols-outlined">
-          keyboard_arrow_up
-        </span>
+        <div className='icon'>
+          <AiOutlineUp/>
+        </div>
         <div className='explain-result'>
-          <h3>Caso queira ganhar massa: </h3>
+          <h3>Caso queira ganhar massa </h3>
           <p>Precisa consumir mais que {valor} por dia, gerando um superávit calórico.</p>
         </div>
       </div>
       <div className='show-explain'>
-        <span className="material-symbols-outlined">
-          expand_more
-        </span>
+        <div className='icon'>
+          <AiOutlineDown/>
+        </div>
         <div className='explain-result'>
-          <h3>Caso queira perder massa: </h3>
+          <h3>Caso queira perder massa </h3>
           <p>Precisa consumir menos que {valor} por dia, gerando déficit calórico.</p>
           <p></p>
         </div>

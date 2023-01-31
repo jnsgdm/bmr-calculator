@@ -18,7 +18,7 @@ input {
   background-color: #F7EFE5;
   border-bottom: 1px solid #000;
   margin: 2em;
-  width: 100%;
+  width: 50%;
   text-align: center;
 }
 
@@ -97,4 +97,10 @@ select {
 
 .h3-presentation{
   font-weight: lighter;
+}
+
+.icon {
+    margin-right: 0.5em;
+    font-size: 1.6em;
+    font-weight: lighter;
 }
