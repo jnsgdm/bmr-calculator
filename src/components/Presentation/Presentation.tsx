@@ -5,7 +5,6 @@ import Modal from '../Modal/Modal';
 import '../Presentation/Presentation.css'
 
 import { AiOutlineCalculator,AiOutlineQuestionCircle } from "react-icons/ai";
-import { CiCalculator2 } from "react-icons/ci";
 
 type Props = {
   handleFlow: any;
@@ -18,12 +17,12 @@ function Presentation(props: Props) {
   const [name, setName] = useState("");
 
     const sendIndexStage = (): void => {
-        if(name === ""){
-          alert('pfv informe algum nome para ser chamad')
-        }else{
-          props.handleCallBackName(name)
-          props.handleFlow(1);
-        }
+        // if(name === ""){
+        //   alert('pfv informe algum nome para ser chamad')
+        // }else{
+        //   props.handleCallBackName(name)
+        // }
+        props.handleFlow(1);
       }
     
       const handleStartWithEnter = (e: any) => {
@@ -34,9 +33,9 @@ function Presentation(props: Props) {
 
   return ( 
     <div className="presentation"> 
-      <h1>TBM Calculator</h1>
+      <h1>Calculadora de Taxa Basal</h1>
       <h3 className='h3-presentation'>
-        Esse projeto tem como objetivo calcular a Taxa de Metabolismo Basal do usuário
+        Fundamental para descobrir quantas calorias você gasta para sobreviver!
       </h3>
       
       <div className='show-explain'>
@@ -45,8 +44,7 @@ function Presentation(props: Props) {
         </div>
         <div className='explain'>
           <h3>Para que serve? </h3>
-          <p>A taxa metabólica basal (TMB) mostra a média de calorias necessarias que uma pessoa
-          parada, em jejum ou em repouso, gasta para sobreviver.</p>
+          <p>A partir dessa taxa é possível calcular um deficit calorico (caso queira imagrecer), ou um superavit calorico (caso queira ganhar massa).</p>
         </div>
       </div>
 
@@ -61,14 +59,14 @@ function Presentation(props: Props) {
         </div>
       </div>
 
-      <Modal start={start} setStart={setStart}>
+      {/* <Modal start={start} setStart={setStart}>
         <div className='content-modal'>
             <label htmlFor="">Me fale seu nome para começarmos:</label>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} onKeyDown={handleStartWithEnter}/>
+            <input className='input-name-modal' type="text" value={name} onChange={(e) => setName(e.target.value)} onKeyDown={handleStartWithEnter}/>
             <button onClick={sendIndexStage} className='btn'>Continuar</button>
           </div>
-      </Modal>
-      <button onClick={() => {setStart(true)}} className='btn'>Iniciar</button>
+      </Modal> */}
+      <button onClick={sendIndexStage} className='btn'>Iniciar</button>
     </div>
   ) }
 

@@ -5,3 +5,25 @@
     align-items: center;
     padding: 2em;
 }
+
+.input-name-modal {
+    border: none;
+    outline: none;
+    background-color: #F7EFE5;
+    border-bottom: 1px solid #000;
+    margin: 2em;
+    width: 100%;
+    text-align: center;
+  }
+
+@media screen and (max-width: 600px) {
+    .presentation h1 {
+        font-size: 130%;
+    }
+}
+
+@media screen and (max-width: 343px) {
+    .presentation h1 {
+        font-size: 120%;
+    }
+}

@@ -22,11 +22,11 @@ type Props = {
 }
 
 const questions: Question[] = [
-  {id: 0, desc: 'o seu genero bilogico: ', step: <GenderIcon/>},
-  {id: 1, desc: 'a sua idade atual: ', step: <BsCalendarEvent/>},
-  {id: 2, desc: 'o seu peso atual (em kg): ', step: <FaWeightHanging/>},
-  {id: 3, desc: 'a sua altura (em metros): ', step: <GiBodyHeight/>},
-  {id: 4, desc: 'Calcular ', step: <BsFillCalculatorFill/>}
+  {id: 1, question: 'o seu genero biológico', desc: 'Genero', step: <GenderIcon/>},
+  {id: 2, question: 'a sua idade', desc: 'Idade', step: <BsCalendarEvent/>},
+  {id: 3, question: 'o seu peso (em Kg)', desc:'Peso', step: <FaWeightHanging/>},
+  {id: 4, question: 'a sua altura (em metros)', desc:'Altura', step: <GiBodyHeight/>},
+  {id: 5, question: 'calcular ', desc: 'Calcular', step: <BsFillCalculatorFill/>}
 ];
 
 interface Basal {
@@ -37,19 +37,20 @@ interface Basal {
 }
 
 const QuestionFlow = (props: Props) => {
-  const [requestData, setRequestData] = useState(questions[0].desc);
+  const [requestData, setRequestData] = useState(questions[0].question);
   const [inputValue, setInputValue] = useState("");
+
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
-  const [calc, setCalc] = useState(false);
 
+  const [calc, setCalc] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
   
   useEffect(()=>{
     if(questionIndex < 4){
-      setRequestData(questions[questionIndex].desc);
+      setRequestData(questions[questionIndex].question);
     }
   },[gender,age,height,weight])
 
@@ -141,7 +142,14 @@ const QuestionFlow = (props: Props) => {
   return (
     <div className='question-card'>
       <Steps questions={questions} questionIndex={questionIndex}/>
-      {questionIndex <= 3 && <p>{props.userName}, me informe {requestData}</p>}
+      <div className='steps2'>
+        <p>Etapa {questionIndex+1}/5</p>
+      </div>
+      {questionIndex <= 3 && 
+        <div className='show-question'>
+          <h3>Informe {requestData}: </h3>
+        </div>
+      }
       {gender === '' && 
         <select value={inputValue} onChange={(e) => setInputValue(e.target.value)}>
           <option value="">-- Selecione --</option>

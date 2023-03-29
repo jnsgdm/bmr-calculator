@@ -17,7 +17,7 @@ function Result(props: Props) {
     <div className='presentation'>
       <h1>Resultado</h1>
       <div className='explain'>
-        <h3 className='h3-presentation'>{props.userName}, você gasta <b>{valor}</b> para sobreviver!</h3>
+        <h3 className='h3-presentation'>Você gasta <b>{valor}</b> para sobreviver!</h3>
       </div>
       <div className='show-explain'>
         <div className='icon'>

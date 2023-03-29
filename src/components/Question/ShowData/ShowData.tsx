@@ -9,10 +9,10 @@ const ShowData = (props: Props) => {
   return (
     <div className='showdata'>
         <ul>
-            <li>Genero biologico: {props.basalObj.gender === 'f' ? 'Feminino' : 'Masculino'} </li>
-            <li>Idade: {props.basalObj.age}</li>
-            <li>Altura: {props.basalObj.height}</li>
-            <li>Peso: {props.basalObj.weight}</li>
+            <li><b>Genero biológico:</b> {props.basalObj.gender === 'f' ? 'Feminino' : 'Masculino'} </li>
+            <li><b>Idade:</b> {props.basalObj.age} anos</li>
+            <li><b>Altura:</b> {props.basalObj.height} m</li>
+            <li><b>Peso:</b> {props.basalObj.weight} kg</li>
         </ul>
         <button onClick={props.sedIndexStage} className='btn'>Calcular</button>
     </div>

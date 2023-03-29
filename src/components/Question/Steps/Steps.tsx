@@ -11,8 +11,9 @@ const Steps = (props: Props) => {
     return (
         <div className='steps'>
             {props.questions.map((question)=>(
-                <div className={question.id === props.questionIndex ? 'active-step' : 'step'}>
+                <div className={question.id === props.questionIndex+1 ? 'active-step' : 'step'}>
                 {question.step}
+                <p>{question.desc}</p>
                 </div>
             ))}
         </div>
