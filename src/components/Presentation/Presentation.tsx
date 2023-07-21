@@ -44,7 +44,7 @@ function Presentation(props: Props) {
         </div>
         <div className='explain'>
           <h3>Para que serve? </h3>
-          <p>A partir dessa taxa é possível calcular um deficit calorico (caso queira imagrecer), ou um superavit calorico (caso queira ganhar massa).</p>
+          <p>A partir dessa taxa é possível calcular um deficit calorico (caso queira emagrecer), ou um superavit calorico (caso queira ganhar massa).</p>
         </div>
       </div>
 
